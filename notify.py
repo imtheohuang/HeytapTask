@@ -108,9 +108,9 @@ def sendTg(tgToken,tgUserId,tghost):
         #用户的ID
         #chat_id = os.environ.get('TG_USERID')
         if tghost == None:
-            url = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={content}'     
+            url = 'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={content}'     
         else:
-            url = f'https://{tghost}/bot{token}/sendMessage?chat_id={chat_id}&text={content}' 
+            url = 'https://{tghost}/bot{token}/sendMessage?chat_id={chat_id}&text={content}' 
         session = requests.Session()
         resp = session.post(url)
         print(resp)
@@ -183,7 +183,7 @@ def sendBark(Barkkey1,Barksave1):
         "body": content
     }
     headers = {'Content-Type': 'application/json;charset=utf-8'}
-    url = f'https://api.day.app/{Barkkey}/?isArchive={Barksave}'
+    url = 'https://api.day.app/'+Barkkey+'/?isArchive='+Barksave
     session = requests.Session()
     resp = session.post(url, json = data, headers = headers)
     state=json.loads(resp.text)
